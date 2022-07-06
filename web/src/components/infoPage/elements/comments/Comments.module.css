@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.input{
+    border-bottom: 1px solid #000;
+    border-color: aqua;
+    width: 100%;
+}
+
+::placeholder { 
+  color: rgb(172, 170, 170);
+  opacity: 1; /* Firefox */
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.listItem{
+    padding: 10px;
+    background-color: rgb(69, 115, 155);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.blockInput{
+    display: flex;
+}
+
+.btnAddComment{
+    border: 1px solid #000;
+    border-color: aqua;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-left: 50px;
+    padding: 10px;
+    width: 200px;
+}

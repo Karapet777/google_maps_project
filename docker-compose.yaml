@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  postgres:
+    image: kartoza/postgis:14-3.2
+    environment:
+      - POSTGRES_USER=postgres # The PostgreSQL user (useful to connect to the database)
+      - POSTGRES_PASSWORD=postgres # The PostgreSQL password (useful to connect to the database)
+      - POSTGRES_DB=restaurant # The PostgreSQL default database (automatically created at first launch)
+    ports:
+      - 5432:5432
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - 3001:3001
+    depends_on:
+      - postgres
+
+  web:
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+      - backend
